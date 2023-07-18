@@ -79,40 +79,38 @@
   </style>
 </head>
 <body>
-  <div class="container" onclick="toggleMessage()">
-    <img class="birthday-image" src="https://i.pinimg.com/564x/28/4c/2c/284c2c3026cc36b061ec4f9e8336d123.jpg" alt="생일 카드 이미지">
-    <div class="message">
-      <div class="header">Happy Birthday, 여자친구 이름!</div>
-      <p>
-        <span class="heart">사랑하는 여자친구 이름,</span>
-      </p>
-      <p>
-        오늘은 당신의 생일입니다! 이 특별한 날에 당신에게 가장 진심 어린 축하를 보냅니다.
-      </p>
-      <p>
-        여자친구 생일 축하합니다! 늘 함께 웃고, 함께 울고, 서로를 지켜주는 그런 행복한 날들이 많기를 바랍니다.
-      </p>
-      <p>
-        당신과 함께 있는 모든 순간들이 저에게는 소중한 보물이에요. 당신과의 시간들이 늘 행복하고 즐거운 일들로 가득하길 기원합니다.
-      </p>
-      <p>
-        생일 축하하고 사랑합니다! ❤️
-      </p>
-      <div class="signature">- 당신의 이름</div>
-    </div>
-  </div>
+  <body>
 
-  <canvas id="canvas"></canvas>
-  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="confetti.js"></script>
-  <script>
-    // 편지 메시지 토글 함수
-    function toggleMessage() {
-      const container = document.querySelector('.container');
-      container.classList.toggle('show-message');
-      startConfetti();
-      setTimeout(stopConfetti, 6000);
-    }
-  </script>
+<script src="/confetti.js"></script>
+
+<style>
+	canvas{z-index:10;pointer-events: none;position: fixed;top: 0;transform: scale(1.1);}
+</style>
+
+<div class="buttonContainer">
+	<button class="canvasBtn" id="stopButton">Stop Confetti</button>
+	<button class="canvasBtn" id="startButton">Drop Confetti</button>	
+</div>
+
+<canvas id="canvas"></canvas>
+
+//////////////본문 소스 공간/////////////////
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){  
+  //티스토리 공감버튼 이벤트
+  function reAction(){
+  	$("#startButton").trigger("click");
+  	setTimeout(function(){
+  		$("#stopButton").trigger("click");
+  	}, 6000);
+  }
+  
+  $(".uoc-icon").on('click', function(){
+      reAction();
+  }); 
+});
+</script>
+
 </body>
 </html>
