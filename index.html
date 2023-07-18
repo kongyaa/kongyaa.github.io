@@ -59,44 +59,18 @@
     }
 
     /* 종이 폭죽 꽃가루 효과 */
-    .container::before,
-    .container::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: #ff4e6e;
-      animation: paper-shower 2s infinite;
-    }
-
-    .container::before {
-      transform: translate(-150%, -150%);
-    }
-
-    .container::after {
-      transform: translate(50%, 150%);
-    }
-
-    @keyframes paper-shower {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.6;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(200px);
-      }
+    canvas {
+      z-index: 10;
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
   <div class="container" onclick="toggleMessage()">
-    <img class="birthday-image" src="https://i.pinimg.com/564x/28/4c/2c/284c2c3026cc36b061ec4f9e8336d123.jpg" alt="생일 카드 이미지">
+    <img class="birthday-image" src="YOUR_CARD_IMAGE_URL" alt="생일 카드 이미지">
     <div class="message">
       <div class="header">Happy Birthday, 여자친구 이름!</div>
       <p>
@@ -118,11 +92,15 @@
     </div>
   </div>
 
+  <canvas id="canvas"></canvas>
+  <script src="confetti.js"></script>
   <script>
     // 편지 메시지 토글 함수
     function toggleMessage() {
       const container = document.querySelector('.container');
       container.classList.toggle('show-message');
+      startConfetti();
+      setTimeout(stopConfetti, 6000);
     }
   </script>
 </body>
