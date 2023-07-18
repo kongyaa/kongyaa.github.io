@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +16,10 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
+      overflow: hidden; /* 폭죽이 화면 밖으로 나가는 것 방지 */
     }
 
+    /* 나머지 부분은 이전 코드와 동일합니다. */
     .container {
       background-color: #fff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -68,7 +71,6 @@
       animation: fireworks 1s linear infinite;
     }
 
-    /* 추가된 폭죽 이펙트 */
     @keyframes fireworks-burst {
       0%, 100% {
         transform: translateY(0) rotate(0);
@@ -111,13 +113,20 @@
       </p>
     </div>
     <div class="signature">- 당신의 이름</div>
-    <!-- 폭죽 이펙트를 담을 추가적인 요소 -->
-    <div class="fireworks"></div>
-    <!-- 화려한 폭죽 이펙트 -->
-    <div class="fireworks-burst" style="top: 100px; left: 50%;"></div>
-    <div class="fireworks-burst" style="top: 200px; left: 80%;"></div>
-    <div class="fireworks-burst" style="top: 150px; left: 20%;"></div>
-    <!-- 더 많은 폭죽 이펙트를 추가하고 싶다면 여기에 더 많은 요소를 추가하세요 -->
   </div>
+
+  <script>
+    // 폭죽을 랜덤한 위치에 동적으로 생성하는 함수
+    function createFirework() {
+      const fireworksElement = document.createElement('div');
+      fireworksElement.className = 'fireworks-burst';
+      fireworksElement.style.top = `${Math.random() * 100}vh`;
+      fireworksElement.style.left = `${Math.random() * 100}vw`;
+      document.body.appendChild(fireworksElement);
+    }
+
+    // 2초마다 폭죽을 생성
+    setInterval(createFirework, 2000);
+  </script>
 </body>
 </html>
