@@ -7,7 +7,9 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f8f8f8;
+      background-image: url('YOUR_IMAGE_URL'); /* 배경 이미지 URL로 대체 */
+      background-size: cover;
+      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -46,7 +48,6 @@
       margin-top: 30px;
     }
 
-    /* 추가된 폭죽 이펙트 */
     @keyframes fireworks {
       0% {
         transform: translateY(0) rotate(0);
@@ -66,14 +67,35 @@
       border-radius: 50%;
       animation: fireworks 1s linear infinite;
     }
+
+    /* 추가된 폭죽 이펙트 */
+    @keyframes fireworks-burst {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-200px) rotate(180deg);
+        opacity: 0.8;
+      }
+    }
+
+    .fireworks-burst {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: #ff4e6e;
+      border-radius: 50%;
+      animation: fireworks-burst 1.5s linear infinite;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">Happy Birthday, YUN!</div>
+    <div class="header">Happy Birthday, 여자친구 이름!</div>
     <div class="message">
       <p>
-        <span class="heart">승연이에게</span>
+        <span class="heart">사랑하는 여자친구 이름,</span>
       </p>
       <p>
         오늘은 당신의 생일입니다! 이 특별한 날에 당신에게 가장 진심 어린 축하를 보냅니다.
@@ -82,15 +104,20 @@
         여자친구 생일 축하합니다! 늘 함께 웃고, 함께 울고, 서로를 지켜주는 그런 행복한 날들이 많기를 바랍니다.
       </p>
       <p>
-        우리 함께하면서 더 성장하고 이쁜 연애 했으면 좋겠다. 다시 한번 더 
+        당신과 함께 있는 모든 순간들이 저에게는 소중한 보물이에요. 당신과의 시간들이 늘 행복하고 즐거운 일들로 가득하길 기원합니다.
       </p>
       <p>
         생일 축하하고 사랑합니다! ❤️
       </p>
     </div>
-    <div class="signature">- 세호가</div>
+    <div class="signature">- 당신의 이름</div>
     <!-- 폭죽 이펙트를 담을 추가적인 요소 -->
     <div class="fireworks"></div>
+    <!-- 화려한 폭죽 이펙트 -->
+    <div class="fireworks-burst" style="top: 100px; left: 50%;"></div>
+    <div class="fireworks-burst" style="top: 200px; left: 80%;"></div>
+    <div class="fireworks-burst" style="top: 150px; left: 20%;"></div>
+    <!-- 더 많은 폭죽 이펙트를 추가하고 싶다면 여기에 더 많은 요소를 추가하세요 -->
   </div>
 </body>
 </html>
