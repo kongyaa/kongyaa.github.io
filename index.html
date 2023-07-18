@@ -18,7 +18,6 @@
       overflow: hidden; /* 폭죽이 화면 밖으로 나가는 것 방지 */
     }
 
-    /* 나머지 부분은 이전 코드와 동일합니다. */
     .container {
       background-color: #fff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -27,17 +26,21 @@
       width: 90%;
       max-width: 600px;
       text-align: center;
+      cursor: pointer;
+      position: relative; /* 이미지를 상대적으로 위치 시킬 수 있도록 설정 */
     }
 
-    .header {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
+    .birthday-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
 
     .message {
       font-size: 16px;
       line-height: 1.6;
+      display: none; /* 처음에는 메시지 숨김 */
+      padding: 10px;
     }
 
     .heart {
@@ -50,47 +53,52 @@
       margin-top: 30px;
     }
 
-    @keyframes fireworks {
-      0%, 100% {
-        transform: translateY(0) scale(1);
+    /* 생일 카드 이미지를 클릭했을 때 메시지 노출 */
+    .container.show-message .message {
+      display: block;
+    }
+
+    /* 종이 폭죽 꽃가루 효과 */
+    .container::before,
+    .container::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ff4e6e;
+      animation: paper-shower 2s infinite;
+    }
+
+    .container::before {
+      transform: translate(-150%, -150%);
+    }
+
+    .container::after {
+      transform: translate(50%, 150%);
+    }
+
+    @keyframes paper-shower {
+      0% {
         opacity: 1;
       }
       50% {
-        transform: translateY(-400px) scale(1.3);
-        opacity: 0.5;
+        opacity: 0.6;
       }
-      75% {
-        transform: translateY(-500px) scale(1.6);
-        opacity: 0.3;
-      }
-      85% {
-        transform: translateY(-600px) scale(2);
-        opacity: 0.2;
-      }
-      90% {
-        transform: translateY(-650px) scale(2.2);
-        opacity: 0.1;
-      }
-      95% {
-        transform: translateY(-700px) scale(2.5);
+      100% {
         opacity: 0;
+        transform: translateY(200px);
       }
-    }
-
-    .fireworks {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background-color: #ff4e6e;
-      border-radius: 50%;
-      animation: fireworks 1s linear;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">Happy Birthday, 여자친구 이름!</div>
+  <div class="container" onclick="toggleMessage()">
+    <img class="birthday-image" src="YOUR_CARD_IMAGE_URL" alt="생일 카드 이미지">
     <div class="message">
+      <div class="header">Happy Birthday, 여자친구 이름!</div>
       <p>
         <span class="heart">사랑하는 여자친구 이름,</span>
       </p>
@@ -106,22 +114,16 @@
       <p>
         생일 축하하고 사랑합니다! ❤️
       </p>
+      <div class="signature">- 당신의 이름</div>
     </div>
-    <div class="signature">- 당신의 이름</div>
   </div>
 
   <script>
-    // 폭죽을 랜덤한 위치에 동적으로 생성하는 함수
-    function createFirework() {
-      const fireworksElement = document.createElement('div');
-      fireworksElement.className = 'fireworks';
-      fireworksElement.style.top = `${Math.random() * 100}vh`;
-      fireworksElement.style.left = `${Math.random() * 100}vw`;
-      document.body.appendChild(fireworksElement);
+    // 편지 메시지 토글 함수
+    function toggleMessage() {
+      const container = document.querySelector('.container');
+      container.classList.toggle('show-message');
     }
-
-    // 2초마다 폭죽을 생성
-    setInterval(createFirework, 2000);
   </script>
 </body>
 </html>
