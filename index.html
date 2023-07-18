@@ -45,6 +45,27 @@
       font-style: italic;
       margin-top: 30px;
     }
+
+    /* 추가된 폭죽 이펙트 */
+    @keyframes fireworks {
+      0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-500px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .fireworks {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: #ff4e6e;
+      border-radius: 50%;
+      animation: fireworks 1s linear infinite;
+    }
   </style>
 </head>
 <body>
@@ -68,6 +89,8 @@
       </p>
     </div>
     <div class="signature">- 당신의 이름</div>
+    <!-- 폭죽 이펙트를 담을 추가적인 요소 -->
+    <div class="fireworks"></div>
   </div>
 </body>
 </html>
