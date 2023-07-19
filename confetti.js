@@ -193,11 +193,5 @@
     canvas.height = H;
   });
 
-  // 편지 메시지 토글 함수
-  function toggleMessage() {
-    const container = document.querySelector(".container");
-    container.classList.toggle("show-message");
-    toggleConfetti();
-    setTimeout(toggleConfetti, 6000);
-  }
+  
 })();
