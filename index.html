@@ -47,7 +47,7 @@
       height: 100%;
       border-radius: 10px;
       opacity: 0.8;
-      z-index: -1; /* 배경 이미지를 뒤로 숨기기 위해 추가 */
+      z-index: 1; /* 배경 이미지를 뒤로 숨기기 위해 추가 */
     }
 
     .message {
@@ -70,6 +70,10 @@
     /* 생일 카드 이미지를 클릭했을 때 메시지 노출 */
     .container.show-message .message {
       display: block;
+    }
+
+    .container.show-message .birthday-image {
+      z-index: -1;
     }
 
     /* 종이 폭죽 꽃가루 효과 */
