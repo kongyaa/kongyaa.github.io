@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src=“https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js”></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday, 여자친구 이름!</title>
@@ -101,6 +102,10 @@
       <div class="signature">- 당신의 이름</div>
     </div>
   </div>
+  <div class="buttonContainer">
+	<button class="canvasBtn" id="stopButton">Stop Confetti</button>
+	<button class="canvasBtn" id="startButton">Drop Confetti</button>	
+</div>
 
   <canvas id="canvas"></canvas>
   <script src="confetti.js"></script>
@@ -109,9 +114,24 @@
     function toggleMessage() {
       const container = document.querySelector(".container");
       container.classList.toggle("show-message");
-      toggleConfetti(); // 이 부분에 toggleConfetti 함수를 호출합니다.
       setTimeout(toggleConfetti, 6000);
     }
   </script>
+
+  <script>
+$(document).ready(function(){  
+  //티스토리 공감버튼 이벤트
+  function reAction(){
+  	$("#startButton").trigger("click");
+  	setTimeout(function(){
+  		$("#stopButton").trigger("click");
+  	}, 6000);
+  }
+  
+  $(".uoc-icon").on('click', function(){
+      reAction();
+  }); 
+});
+</script>
 </body>
 </html>
