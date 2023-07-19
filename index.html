@@ -78,6 +78,9 @@
       top: 0;
       transform: scale(1.1);
     }
+
+    .buttonContainer {
+      opacity: 0;
   </style>
 </head>
 <body>
@@ -102,6 +105,10 @@
       </p>
       <div class="signature">- 당신의 이름</div>
     </div>
+    <div class="buttonContainer">
+    	<button class="canvasBtn" id="stopButton">Stop Confetti</button>
+    	<button class="canvasBtn" id="startButton">Drop Confetti</button>	
+    </div>
   </div>
 
   <canvas id="canvas"></canvas>
@@ -111,7 +118,7 @@
     function toggleMessage() {
       const container = document.querySelector(".container");
       container.classList.toggle("show-message");
-       reAction();
+      
     }
   </script>
 
