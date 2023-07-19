@@ -32,6 +32,14 @@
       transition: height 0.5s; /* 카드가 펼쳐지는 효과를 위해 추가 */
     }
 
+    @media (max-width: 768px) {
+      /* 모바일 화면일 때 container의 너비를 90%로 조정 */
+      .container {
+        width: 80%;
+      }
+    }
+
+
     .container.show-message {
       height: 600px; /* 카드가 펼쳐질 높이를 설정 */
       background-image: url('https://i.pinimg.com/564x/b7/68/9c/b7689c0….jpg');
