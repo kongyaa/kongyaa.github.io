@@ -102,7 +102,6 @@
     </div>
   </div>
 
-  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
   <canvas id="canvas"></canvas>
   <script src="confetti.js"></script>
   <script>
@@ -110,7 +109,7 @@
     function toggleMessage() {
       const container = document.querySelector(".container");
       container.classList.toggle("show-message");
-      toggleConfetti();
+      toggleConfetti(); // 이 부분에 toggleConfetti 함수를 호출합니다.
       setTimeout(toggleConfetti, 6000);
     }
   </script>
