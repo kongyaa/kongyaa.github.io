@@ -13,7 +13,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: calc(var(--vh, 1vh) * 100);
+        min-height: 100vh;
+        @supports (-webkit-appearance:none) and (stroke-color: transparent) {
+          min-height: -webkit-fill-available;
+        }
         margin: 0;
         overflow: hidden; /* 폭죽이 화면 밖으로 나가는 것 방지 */
       }
