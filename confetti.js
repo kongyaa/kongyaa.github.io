@@ -178,6 +178,7 @@
   }
 
   function toggleConfetti() {
+    alert(111);
     if (confettiActive) {
       DeactivateConfetti();
     } else {
